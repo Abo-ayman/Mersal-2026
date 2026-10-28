@@ -44,6 +44,12 @@ jobs:
           cp src/mersal-driver.jks app/android/app/mersal-driver.jks
           python3 src/scripts/patch_android.py app
 
+      - name: Analyze Dart code
+        working-directory: app
+        run: |
+          flutter pub get
+          flutter analyze
+
       - name: Build release APK
         working-directory: app
         run: |
